@@ -12,9 +12,6 @@
 		"@typescript-eslint/eslint-plugin-stylistic",
 		"@typescript-eslint/eslint-plugin-stylistic-type-checked"
 	],
-	"ignoreExportsUsedInFile": {
-		"interface": true,
-		"type": true
-	},
+	"ignore": ["./src/**/*.*"],
 	"project": "src/**/*.ts!"
 }

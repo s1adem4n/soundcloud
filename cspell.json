@@ -25,6 +25,10 @@
 		"quickstart",
 		"Unstaged",
 		"wontfix",
-		"soundcloud"
+		"soundcloud",
+		"commentable",
+		"embeddable",
+		"reposts",
+		"streamable"
 	]
 }
