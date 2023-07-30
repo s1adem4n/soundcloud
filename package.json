@@ -1,5 +1,5 @@
 {
-	"name": "soundcloud",
+	"name": "@slademan/soundcloud",
 	"version": "0.0.0",
 	"description": "SoundCloud APIv2 wrapper for typescript",
 	"repository": {
@@ -81,6 +81,6 @@
 		"node": ">=18"
 	},
 	"publishConfig": {
-		"provenance": true
+		"access": "public"
 	}
 }
