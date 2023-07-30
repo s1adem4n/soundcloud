@@ -29,7 +29,7 @@
 ## Usage
 
 ```shell
-npm i soundcloud
+npm i @slademan/soundcloud
 ```
 
 ```ts
