@@ -2,6 +2,7 @@
 	"$schema": "https://unpkg.com/knip@next/schema.json",
 	"entry": ["src/index.ts!", "script/*e2e.js"],
 	"ignoreBinaries": ["dedupe", "gh"],
+	"ignore": ["./src/**/*.*"],
 	"ignoreDependencies": [
 		// TODO: investigate if these are still flagged, and file issues if not
 		"all-contributors-cli",
@@ -12,6 +13,5 @@
 		"@typescript-eslint/eslint-plugin-stylistic",
 		"@typescript-eslint/eslint-plugin-stylistic-type-checked"
 	],
-	"ignore": ["./src/**/*.*"],
 	"project": "src/**/*.ts!"
 }
