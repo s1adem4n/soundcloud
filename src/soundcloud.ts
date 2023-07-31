@@ -15,11 +15,10 @@ export class Soundcloud {
 		clientID: string,
 		oauthToken: string,
 		apiURL = "https://api-v2.soundcloud.com",
-		fetchFn = fetch,
 	) {
 		Soundcloud.clientID = clientID;
 		Soundcloud.oauthToken = oauthToken;
-		this.api = new API(clientID, oauthToken, apiURL, fetchFn);
+		this.api = new API(clientID, oauthToken, apiURL);
 	}
 }
 
