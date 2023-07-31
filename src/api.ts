@@ -1,7 +1,5 @@
 /* eslint-disable eslint-comments/disable-enable-pair */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-const apiURL = "https://api-v2.soundcloud.com";
-
 export class API {
 	public static headers: Record<string, any> = {
 		Origin: "https://soundcloud.com",
@@ -13,6 +11,7 @@ export class API {
 	constructor(
 		public clientID: string,
 		public oauthToken: string,
+		public apiURL: string = "https://api-v2.soundcloud.com",
 	) {
 		API.headers.Authorization = `OAuth ${oauthToken}`;
 	}
@@ -21,7 +20,7 @@ export class API {
 		endpoint: string,
 		params?: Record<string, any> | undefined,
 	): Promise<Response> {
-		const url = new URL(`${apiURL}${endpoint}`);
+		const url = new URL(`${this.apiURL}${endpoint}`);
 		if (params) {
 			url.search = `${new URLSearchParams(params).toString()}&client_id=${
 				this.clientID
