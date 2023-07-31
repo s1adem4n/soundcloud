@@ -12,6 +12,7 @@ export class API {
 		public clientID: string,
 		public oauthToken: string,
 		public apiURL: string = "https://api-v2.soundcloud.com",
+		public fetchFn = fetch,
 	) {
 		API.headers.Authorization = `OAuth ${oauthToken}`;
 	}
@@ -29,8 +30,9 @@ export class API {
 			url.search = `?client_id=${this.clientID}`;
 		}
 
-		const response = await fetch(url.toString(), {
+		const response = await this.fetchFn(url.toString(), {
 			headers: API.headers,
+			method: "GET",
 		});
 		if (!response.ok) {
 			throw new Error(
