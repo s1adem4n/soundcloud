@@ -81,7 +81,6 @@
 		"node": ">=18"
 	},
 	"publishConfig": {
-		"access": "public",
-		"npm": false
+		"access": "public"
 	}
 }
