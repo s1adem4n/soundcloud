@@ -1,15 +1,6 @@
-import { SoundcloudFilter, SoundcloudSearch } from "./APITypes.js";
-import { SoundcloudUser } from "./UserTypes.js";
-
-export type SoundcloudLicense =
-	| "all-rights-reserved"
-	| "cc-by"
-	| "cc-by-nc"
-	| "cc-by-nc-nd"
-	| "cc-by-nc-sa"
-	| "cc-by-nd"
-	| "cc-by-sa"
-	| "no-rights-reserved";
+import type { SoundcloudFilter, SoundcloudSearch } from "./APITypes";
+import type { SoundcloudUser } from "./UserTypes";
+import type { SoundcloudLicense } from "./APITypes";
 
 export interface SoundcloudTrack {
 	artwork_url: string;
@@ -63,10 +54,6 @@ export interface SoundcloudTrack {
 	waveform_url: string;
 }
 
-export interface SoundcloudTrackSearch extends SoundcloudSearch {
-	collection: SoundcloudTrack[];
-}
-
 export interface SoundcloudTranscoding {
 	duration: number;
 	format: {
@@ -79,17 +66,22 @@ export interface SoundcloudTranscoding {
 	url: string;
 }
 
-export interface SoundcloudTrackFilter extends SoundcloudFilter {
-	"filter.created_at"?:
-		| "last_day"
-		| "last_hour"
-		| "last_month"
-		| "last_week"
-		| "last_year";
-	"filter.duration"?: "epic" | "long" | "medium" | "short";
-	"filter.genre_or_tag"?: string;
-	"filter.license"?:
-		| "to_modify_commercially"
-		| "to_share"
-		| "to_use_commercially";
+export interface SoundloudComment {
+	kind: string;
+	id: number;
+	body: string;
+	created_at: string;
+	timestamp: number;
+	track_id: number;
+	user_id: number;
+	self: { urn: string };
+	user: SoundcloudUser;
+}
+
+export interface SoundcloudCommentFilter extends SoundcloudFilter {
+	threaded: 0 | 1;
+}
+
+export interface SoundcloudCommentSearch extends SoundcloudSearch {
+	collection: SoundloudComment[];
 }

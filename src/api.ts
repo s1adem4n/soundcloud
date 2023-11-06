@@ -1,5 +1,12 @@
-/* eslint-disable eslint-comments/disable-enable-pair */
 /* eslint-disable @typescript-eslint/no-explicit-any */
+
+interface RequestOpts {
+	params?: Record<string, any>;
+	body?: Record<string, any>;
+}
+
+type HttpVerb = "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
+
 export class API {
 	public static headers: Record<string, any> = {
 		Origin: "https://soundcloud.com",
@@ -16,13 +23,14 @@ export class API {
 		API.headers.Authorization = `OAuth ${oauthToken}`;
 	}
 
-	public async get(
+	private async makeRequest(
 		endpoint: string,
-		params?: Record<string, any> | undefined,
-	): Promise<Response> {
+		method: HttpVerb,
+		opts: RequestOpts = {},
+	) {
 		const url = new URL(`${this.apiURL}${endpoint}`);
-		if (params) {
-			url.search = `${new URLSearchParams(params).toString()}&client_id=${
+		if (opts.params) {
+			url.search = `${new URLSearchParams(opts.params).toString()}&client_id=${
 				this.clientID
 			}`;
 		} else {
@@ -30,16 +38,40 @@ export class API {
 		}
 
 		const response = await fetch(url.toString(), {
+			method,
+			headers: API.headers,
+			body: JSON.stringify(opts.body),
+		});
+
+		return response;
+	}
+
+	public async fetch<T>(
+		endpoint: string,
+		method: HttpVerb,
+		opts?: RequestOpts,
+	) {
+		const res = await this.makeRequest(endpoint, method, opts);
+		return {
+			success: res.ok,
+			data: res.ok ? ((await res.json()) as T) : null,
+		};
+	}
+
+	public async getURL(url: string) {
+		const urlObj = new URL(url);
+		if (!urlObj.searchParams.has("client_id")) {
+			urlObj.searchParams.append("client_id", this.clientID);
+		}
+		const response = await fetch(urlObj.toString(), {
+			method: "GET",
 			headers: API.headers,
 		});
 		if (!response.ok) {
 			throw new Error(
-				`Failed to fetch ${url.toString()}: "${
-					response.statusText
-				}" with status code ${response.status}`,
+				`Failed to fetch ${urlObj.toString()}: ${response.status}`,
 			);
 		}
-
 		return response;
 	}
 

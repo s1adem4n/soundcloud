@@ -17,10 +17,14 @@ export class Util extends Base {
 			? `&client_id=${client_id}`
 			: `?client_id=${client_id}`;
 		try {
-			return await fetch(url + connect, { headers })
-				.then((r) => r.json())
-				// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-				.then((r) => r.url as string);
+			const res = await fetch(url + connect, {
+				method: "GET",
+				headers: headers,
+			});
+
+			return (await res.json()) as {
+				url: string;
+			} | null;
 		} catch {
 			return null;
 		}
@@ -50,5 +54,10 @@ export class Util extends Base {
 		}
 
 		return await this.getStreamLink(transcodings[0]);
+	};
+
+	public hqArtwork = (track: SoundcloudTrack) => {
+		const hqArtwork = track.artwork_url.replace("large", "t500x500");
+		return hqArtwork;
 	};
 }

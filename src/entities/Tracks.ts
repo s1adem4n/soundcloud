@@ -1,24 +1,38 @@
 import type {
+	SoundcloudCommentSearch,
 	SoundcloudTrack,
-	SoundcloudTrackFilter,
 	SoundcloudTrackSearch,
+	SoundcloudCommentFilter,
+	SoundcloudFilter,
 } from "../types";
 
 import { Base } from "./Base.js";
 
 export class Tracks extends Base {
 	public get = async (id: number) => {
-		const response = await this.api.get(`/tracks/${id}`);
-		return (await response.json()) as SoundcloudTrack;
+		return await this.api.fetch<SoundcloudTrack>(`/tracks/${id}`, "GET");
 	};
 
-	public related = async (id: number, limit?: number) => {
-		const response = await this.api.get(`/tracks/${id}/related`, { limit });
-		return (await response.json()) as SoundcloudTrack[];
+	public related = async (id: number, params?: SoundcloudFilter) => {
+		return await this.api.fetch<SoundcloudTrackSearch>(
+			`/tracks/${id}/related`,
+			"GET",
+			{ params },
+		);
 	};
 
-	public search = async (params?: SoundcloudTrackFilter) => {
-		const response = await this.api.get("/search/tracks", params);
-		return (await response.json()) as SoundcloudTrackSearch;
+	public getMultiple = async (ids: number[]) => {
+		const params = { ids: ids.join(",") };
+		return await this.api.fetch<SoundcloudTrack[]>(`/tracks`, "GET", {
+			params,
+		});
+	};
+
+	public comments = async (id: number, params?: SoundcloudCommentFilter) => {
+		return await this.api.fetch<SoundcloudCommentSearch>(
+			`/tracks/${id}/comments`,
+			"GET",
+			{ params },
+		);
 	};
 }

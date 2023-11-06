@@ -33,9 +33,14 @@ npm i @slademan/soundcloud
 ```
 
 ```ts
-import { greet } from "soundcloud";
+import Soundcloud from "@slademan/soundcloud";
 
-greet("Hello, world!");
+const sc = new Soundcloud(ClientID, OauthTokem);
+
+const me = await sc.me.get();
+if (me.success && me.data) {
+	console.log(me.data);
+}
 ```
 
 ## Development
