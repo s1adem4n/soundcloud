@@ -1,14 +1,14 @@
+/* eslint-disable eslint-comments/disable-enable-pair */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-
 interface RequestOpts {
-	params?: Record<string, any>;
 	body?: Record<string, any>;
+	params?: Record<string, any>;
 }
 
-type HttpVerb = "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
+type HttpVerb = "DELETE" | "GET" | "PATCH" | "POST" | "PUT";
 
 export class API {
-	public static headers: Record<string, any> = {
+	public static headers: Record<string, string> = {
 		Origin: "https://soundcloud.com",
 		Referer: "https://soundcloud.com/",
 		"User-Agent":
@@ -38,9 +38,9 @@ export class API {
 		}
 
 		const response = await fetch(url.toString(), {
-			method,
-			headers: API.headers,
 			body: JSON.stringify(opts.body),
+			headers: API.headers,
+			method,
 		});
 
 		return response;
@@ -53,8 +53,8 @@ export class API {
 	) {
 		const res = await this.makeRequest(endpoint, method, opts);
 		return {
-			success: res.ok,
 			data: res.ok ? ((await res.json()) as T) : null,
+			success: res.ok,
 		};
 	}
 
@@ -63,15 +63,17 @@ export class API {
 		if (!urlObj.searchParams.has("client_id")) {
 			urlObj.searchParams.append("client_id", this.clientID);
 		}
+
 		const response = await fetch(urlObj.toString(), {
-			method: "GET",
 			headers: API.headers,
+			method: "GET",
 		});
 		if (!response.ok) {
 			throw new Error(
 				`Failed to fetch ${urlObj.toString()}: ${response.status}`,
 			);
 		}
+
 		return response;
 	}
 

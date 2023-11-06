@@ -3,12 +3,13 @@ import type {
 	SoundcloudSelectionSearch,
 	SoundcloudTrackSearch,
 } from "../types";
-import { Base } from "./Base";
+
+import { Base } from "./Base.js";
 
 export class Discover extends Base {
-	public recentTracks = async (genre: string, params?: SoundcloudFilter) => {
-		return this.api.fetch<SoundcloudTrackSearch>(
-			`/recent_tracks/${genre}`,
+	public mixedCollections = async (params?: SoundcloudFilter) => {
+		return this.api.fetch<SoundcloudSelectionSearch>(
+			`/mixed_collections`,
 			"GET",
 			{
 				params,
@@ -16,9 +17,9 @@ export class Discover extends Base {
 		);
 	};
 
-	public mixedCollections = async (params?: SoundcloudFilter) => {
-		return this.api.fetch<SoundcloudSelectionSearch>(
-			`/mixed_collections`,
+	public recentTracks = async (genre: string, params?: SoundcloudFilter) => {
+		return this.api.fetch<SoundcloudTrackSearch>(
+			`/recent_tracks/${genre}`,
 			"GET",
 			{
 				params,

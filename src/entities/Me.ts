@@ -1,15 +1,11 @@
-import type {
-	SoundcloudFilter,
-	SoundcloudPlaylist,
-	SoundcloudTrack,
-} from "../types";
+import type { SoundcloudFilter, SoundcloudPlaylist } from "../types";
+import type { SoundcloudUser } from "../types/UserTypes";
+
 import {
 	type SoundcloudLikesIDsSearch,
 	type SoundcloudWhoToFollowFilter,
 	type SoundcloudWhoToFollowSearch,
-} from "../types/MeTypes";
-import type { SoundcloudUser } from "../types/UserTypes";
-
+} from "../types/MeTypes.js";
 import { Base } from "./Base.js";
 
 export class Me extends Base {
@@ -17,40 +13,6 @@ export class Me extends Base {
 		return this.api.fetch<SoundcloudUser>("/me", "GET");
 	};
 
-	trackReposts = {
-		put: async (id: number) => {
-			return this.sc.api.fetch<null>(`/me/track_reposts/${id}`, "PUT");
-		},
-		delete: async (id: number) => {
-			return this.sc.api.fetch<null>(`/me/track_reposts/${id}`, "DELETE");
-		},
-		caption: async (id: number, caption: string) => {
-			return await this.sc.api.fetch<null>(
-				`/me/track_reposts/${id}/caption`,
-				"PUT",
-				{
-					body: { payload: { caption }, type: "raw" },
-				},
-			);
-		},
-	};
-	trackLikes = {
-		get: async (params?: SoundcloudFilter) => {
-			return this.sc.api.fetch<SoundcloudLikesIDsSearch>(
-				"/me/track_likes/ids",
-				"GET",
-				{
-					params,
-				},
-			);
-		},
-		put: async (id: number) => {
-			return this.sc.api.fetch<null>(`/me/track_likes/${id}`, "PUT");
-		},
-		delete: async (id: number) => {
-			return this.sc.api.fetch<null>(`/me/track_likes/${id}`, "DELETE");
-		},
-	};
 	library = {
 		all: async (params?: SoundcloudFilter) => {
 			return this.api.fetch<SoundcloudPlaylist>("/me/library", "GET", {
@@ -67,6 +29,40 @@ export class Me extends Base {
 					params,
 				},
 			);
+		},
+	};
+	trackLikes = {
+		delete: async (id: number) => {
+			return this.sc.api.fetch<null>(`/me/track_likes/${id}`, "DELETE");
+		},
+		get: async (params?: SoundcloudFilter) => {
+			return this.sc.api.fetch<SoundcloudLikesIDsSearch>(
+				"/me/track_likes/ids",
+				"GET",
+				{
+					params,
+				},
+			);
+		},
+		put: async (id: number) => {
+			return this.sc.api.fetch<null>(`/me/track_likes/${id}`, "PUT");
+		},
+	};
+	trackReposts = {
+		caption: async (id: number, caption: string) => {
+			return await this.sc.api.fetch<null>(
+				`/me/track_reposts/${id}/caption`,
+				"PUT",
+				{
+					body: { payload: { caption }, type: "raw" },
+				},
+			);
+		},
+		delete: async (id: number) => {
+			return this.sc.api.fetch<null>(`/me/track_reposts/${id}`, "DELETE");
+		},
+		put: async (id: number) => {
+			return this.sc.api.fetch<null>(`/me/track_reposts/${id}`, "PUT");
 		},
 	};
 }

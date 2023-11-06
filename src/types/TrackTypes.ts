@@ -1,6 +1,6 @@
+import type { SoundcloudLicense } from "./APITypes";
 import type { SoundcloudFilter, SoundcloudSearch } from "./APITypes";
 import type { SoundcloudUser } from "./UserTypes";
-import type { SoundcloudLicense } from "./APITypes";
 
 export interface SoundcloudTrack {
 	artwork_url: string;
@@ -67,15 +67,15 @@ export interface SoundcloudTranscoding {
 }
 
 export interface SoundloudComment {
-	kind: string;
-	id: number;
 	body: string;
 	created_at: string;
+	id: number;
+	kind: string;
+	self: { urn: string };
 	timestamp: number;
 	track_id: number;
-	user_id: number;
-	self: { urn: string };
 	user: SoundcloudUser;
+	user_id: number;
 }
 
 export interface SoundcloudCommentFilter extends SoundcloudFilter {

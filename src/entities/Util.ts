@@ -18,8 +18,8 @@ export class Util extends Base {
 			: `?client_id=${client_id}`;
 		try {
 			const res = await fetch(url + connect, {
-				method: "GET",
 				headers: headers,
+				method: "GET",
 			});
 
 			return (await res.json()) as {
@@ -44,6 +44,11 @@ export class Util extends Base {
 		return transcodings.filter((t) => t.format.protocol === protocol);
 	};
 
+	public hqArtwork = (track: SoundcloudTrack) => {
+		const hqArtwork = track.artwork_url.replace("large", "t500x500");
+		return hqArtwork;
+	};
+
 	public streamLink = async (
 		track: SoundcloudTrack,
 		protocol?: "hls" | "progressive",
@@ -54,10 +59,5 @@ export class Util extends Base {
 		}
 
 		return await this.getStreamLink(transcodings[0]);
-	};
-
-	public hqArtwork = (track: SoundcloudTrack) => {
-		const hqArtwork = track.artwork_url.replace("large", "t500x500");
-		return hqArtwork;
 	};
 }

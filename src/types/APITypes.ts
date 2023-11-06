@@ -8,7 +8,7 @@ export interface SoundcloudSearchFilter extends SoundcloudFilter {
 }
 
 export interface SoundcloudSearch {
-	next_href: string | null;
+	next_href: null | string;
 	query_urn: string;
 	total_results?: number;
 }
