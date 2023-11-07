@@ -10,9 +10,6 @@
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 <!-- prettier-ignore-end -->
 	</a>
-	<a href="https://codecov.io/gh/s1adem4n/soundcloud" target="_blank">
-		<img alt="Codecov Test Coverage" src="https://codecov.io/gh/s1adem4n/soundcloud/branch/main/graph/badge.svg?token=eVIFY4MhfQ"/>
-	</a>
 	<a href="https://github.com/s1adem4n/soundcloud/blob/main/.github/CODE_OF_CONDUCT.md" target="_blank">
 		<img alt="Code of Conduct: Enforced 🤝" src="https://img.shields.io/badge/code_of_conduct-enforced_🤝-21bb42" />
 	</a>
@@ -35,7 +32,7 @@ npm i @slademan/soundcloud
 ```ts
 import Soundcloud from "@slademan/soundcloud";
 
-const sc = new Soundcloud(ClientID, OauthTokem);
+const sc = new Soundcloud(ClientID, OauthToken);
 
 const me = await sc.me.get();
 if (me.success && me.data) {

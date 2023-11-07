@@ -46,6 +46,13 @@ export class API {
 		return response;
 	}
 
+	/**
+	 * Fetches data from the specified endpoint using the specified HTTP verb and request options.
+	 * @param endpoint - The endpoint to fetch data from.
+	 * @param method - The HTTP verb to use for the request.
+	 * @param opts - The request options to use for the request.
+	 * @returns An object containing the fetched data and a boolean indicating whether the request was successful.
+	 */
 	public async fetch<T>(
 		endpoint: string,
 		method: HttpVerb,
@@ -58,6 +65,12 @@ export class API {
 		};
 	}
 
+	/**
+	 * Fetches the URL with the given client ID and headers.
+	 * @param url - The URL to fetch.
+	 * @returns A Promise that resolves with the Response object.
+	 * @throws An error if the response is not ok.
+	 */
 	public async getURL(url: string) {
 		const urlObj = new URL(url);
 		if (!urlObj.searchParams.has("client_id")) {
