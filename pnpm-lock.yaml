@@ -54,8 +54,8 @@ devDependencies:
     specifier: ^3.1.0
     version: 3.1.0
   eslint-plugin-perfectionist:
-    specifier: ^1.4.0
-    version: 1.4.0(eslint@8.40.0)(typescript@5.2.2)
+    specifier: ^2.0.0
+    version: 2.2.0(eslint@8.40.0)(typescript@5.2.2)
   eslint-plugin-regexp:
     specifier: ^1.15.0
     version: 1.15.0(eslint@8.40.0)
@@ -3058,16 +3058,26 @@ packages:
     engines: {node: '>=5.0.0'}
     dev: true
 
-  /eslint-plugin-perfectionist@1.4.0(eslint@8.40.0)(typescript@5.2.2):
-    resolution: {integrity: sha512-9gO+qmuU1DYzoYeN2D0PqYrI1FlqMPYGsZTWUWnWPrMQdFGFtq7eYraeQ57/8ffNBbVX6e6HvQOJ9iok9DfJvw==}
+  /eslint-plugin-perfectionist@2.2.0(eslint@8.40.0)(typescript@5.2.2):
+    resolution: {integrity: sha512-/nG2Uurd6AY7CI6zlgjHPOoiPY8B7EYMUWdNb5w+EzyauYiQjjD5lQwAI1FlkBbCCFFZw/CdZIPQhXumYoiyaw==}
     peerDependencies:
+      astro-eslint-parser: ^0.16.0
       eslint: '>=8.0.0'
+      svelte: '>=3.0.0'
+      svelte-eslint-parser: ^0.33.0
+      vue-eslint-parser: '>=9.0.0'
+    peerDependenciesMeta:
+      astro-eslint-parser:
+        optional: true
+      svelte:
+        optional: true
+      svelte-eslint-parser:
+        optional: true
+      vue-eslint-parser:
+        optional: true
     dependencies:
-      '@typescript-eslint/types': 5.59.11
-      '@typescript-eslint/utils': 5.59.11(eslint@8.40.0)(typescript@5.2.2)
+      '@typescript-eslint/utils': 6.10.0(eslint@8.40.0)(typescript@5.2.2)
       eslint: 8.40.0
-      is-core-module: 2.12.1
-      json5: 2.2.3
       minimatch: 9.0.3
       natural-compare-lite: 1.4.0
     transitivePeerDependencies:
