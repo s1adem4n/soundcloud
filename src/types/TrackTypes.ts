@@ -66,7 +66,7 @@ export interface SoundcloudTranscoding {
 	url: string;
 }
 
-export interface SoundloudComment {
+export interface SoundcloudComment {
 	body: string;
 	created_at: string;
 	id: number;
@@ -83,5 +83,5 @@ export interface SoundcloudCommentFilter extends SoundcloudFilter {
 }
 
 export interface SoundcloudCommentSearch extends SoundcloudSearch {
-	collection: SoundloudComment[];
+	collection: SoundcloudComment[];
 }
