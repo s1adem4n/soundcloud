@@ -46,7 +46,7 @@ devDependencies:
     version: 2.8.0(eslint@8.40.0)
   eslint-plugin-markdown:
     specifier: ^3.0.0
-    version: 3.0.0(eslint@8.40.0)
+    version: 3.0.1(eslint@8.40.0)
   eslint-plugin-n:
     specifier: ^16.0.0
     version: 16.0.0(eslint@8.40.0)
@@ -73,7 +73,7 @@ devDependencies:
     version: 2.3.0
   knip:
     specifier: 5.0.1
-    version: 5.0.1(@types/node@18.11.18)(typescript@5.2.2)
+    version: 5.0.1(@types/node@20.11.20)(typescript@5.2.2)
   lint-staged:
     specifier: ^15.0.0
     version: 15.0.2
@@ -112,7 +112,7 @@ devDependencies:
     version: 5.2.2
   vitest:
     specifier: ^1.0.0
-    version: 1.0.2(@types/node@18.11.18)
+    version: 1.0.2(@types/node@20.11.20)
   yaml-eslint-parser:
     specifier: ^1.2.2
     version: 1.2.2
@@ -1491,18 +1491,20 @@ packages:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
     dev: true
 
-  /@types/mdast@3.0.10:
-    resolution: {integrity: sha512-W864tg/Osz1+9f4lrGTZpCSO5/z4608eUp19tbozkq2HJK6i3z1kT0H9tlADXuYIb1YYOBByU4Jsqkk75q48qA==}
+  /@types/mdast@3.0.15:
+    resolution: {integrity: sha512-LnwD+mUEfxWMa1QpDraczIn6k0Ee3SMicuYSSzS6ZYl2gKS09EClnJYGd8Du6rfc5r/GZEk5o1mRb8TaTj03sQ==}
     dependencies:
-      '@types/unist': 2.0.6
+      '@types/unist': 2.0.10
     dev: true
 
   /@types/minimist@1.2.2:
     resolution: {integrity: sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==}
     dev: true
 
-  /@types/node@18.11.18:
-    resolution: {integrity: sha512-DHQpWGjyQKSHj3ebjFI/wRKcqQcdR+MoFBygntYOZytCqNfkd2ZC4ARDJ2DQqhjH5p85Nnd3jhUJIXrszFX/JA==}
+  /@types/node@20.11.20:
+    resolution: {integrity: sha512-7/rR21OS+fq8IyHTgtLkDK949uzsa6n8BkziAKtPVpugIkO6D+/ooXMvzXxDnZrmtXVfjb1bKQafYpb8s89LOg==}
+    dependencies:
+      undici-types: 5.26.5
     dev: true
 
   /@types/normalize-package-data@2.4.1:
@@ -1517,8 +1519,8 @@ packages:
     resolution: {integrity: sha512-MMzuxN3GdFwskAnb6fz0orFvhfqi752yjaXylr0Rp4oDg5H0Zn1IuyRhDVvYOwAXoJirx2xuS16I3WjxnAIHiQ==}
     dev: true
 
-  /@types/unist@2.0.6:
-    resolution: {integrity: sha512-PBjIUxZHOuj0R15/xuwJYjFi+KZdNFrehocChv4g5hu6aFroHue8m0lBP0POdK2nKzbw0cgV1mws8+V/JAcEkQ==}
+  /@types/unist@2.0.10:
+    resolution: {integrity: sha512-IfYcSBWE3hLpBg8+X2SEa8LVkJdJEkT2Ese2aaLs3ptGdVtABxndrMaxuFlQ1qdFf9Q5rDvDpxI3WwgvKFAsQA==}
     dev: true
 
   /@typescript-eslint/eslint-plugin@7.0.1(@typescript-eslint/parser@6.0.0)(eslint@8.40.0)(typescript@5.2.2):
@@ -1770,7 +1772,7 @@ packages:
       magicast: 0.3.2
       picocolors: 1.0.0
       test-exclude: 6.0.0
-      vitest: 1.0.2(@types/node@18.11.18)
+      vitest: 1.0.2(@types/node@20.11.20)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -3185,8 +3187,8 @@ packages:
       natural-compare: 1.4.0
     dev: true
 
-  /eslint-plugin-markdown@3.0.0(eslint@8.40.0):
-    resolution: {integrity: sha512-hRs5RUJGbeHDLfS7ELanT0e29Ocyssf/7kBM+p7KluY5AwngGkDf8Oyu4658/NZSGTTq05FZeWbkxXtbVyHPwg==}
+  /eslint-plugin-markdown@3.0.1(eslint@8.40.0):
+    resolution: {integrity: sha512-8rqoc148DWdGdmYF6WSQFT3uQ6PO7zXYgeBpHAOAakX/zpq+NvFYbDA/H7PYzHajwtmaOzAwfxyl++x0g1/N9A==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
       eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
@@ -3277,7 +3279,7 @@ packages:
       '@typescript-eslint/utils': 6.10.0(eslint@8.40.0)(typescript@5.2.2)
       eslint: 8.40.0
       typescript: 5.2.2
-      vitest: 1.0.2(@types/node@18.11.18)
+      vitest: 1.0.2(@types/node@20.11.20)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -4680,7 +4682,7 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /knip@5.0.1(@types/node@18.11.18)(typescript@5.2.2):
+  /knip@5.0.1(@types/node@20.11.20)(typescript@5.2.2):
     resolution: {integrity: sha512-rvZbe2JIpx+3i+ZC3XpLpKPp6oII9f5w1MOMsXwS1JnuYVuNd4R2i4eon2hFds9a+pf8F10DC1Gvt1W8SIBw3A==}
     engines: {node: '>=18.6.0'}
     hasBin: true
@@ -4695,7 +4697,7 @@ packages:
       '@pnpm/logger': 5.0.0
       '@pnpm/workspace.pkgs-graph': 2.0.14(@pnpm/logger@5.0.0)
       '@snyk/github-codeowners': 1.1.0
-      '@types/node': 18.11.18
+      '@types/node': 20.11.20
       '@types/picomatch': 2.3.3
       easy-table: 1.2.0
       fast-glob: 3.3.2
@@ -5034,7 +5036,7 @@ packages:
   /mdast-util-from-markdown@0.8.5:
     resolution: {integrity: sha512-2hkTXtYYnr+NubD/g6KGBS/0mFmBcifAsI0yIWRiRo0PjVs6SSOSOdtzbp6kSGnShDN6G5aWZpKQ2lWRy27mWQ==}
     dependencies:
-      '@types/mdast': 3.0.10
+      '@types/mdast': 3.0.15
       mdast-util-to-string: 2.0.0
       micromark: 2.11.4
       parse-entities: 2.0.0
@@ -6947,6 +6949,10 @@ packages:
       which-boxed-primitive: 1.0.2
     dev: true
 
+  /undici-types@5.26.5:
+    resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
+    dev: true
+
   /unescape-js@1.1.4:
     resolution: {integrity: sha512-42SD8NOQEhdYntEiUQdYq/1V/YHwr1HLwlHuTJB5InVVdOSbgI6xu8jK5q65yIzuFCfczzyDF/7hbGzVbyCw0g==}
     dependencies:
@@ -6975,7 +6981,7 @@ packages:
   /unist-util-stringify-position@2.0.3:
     resolution: {integrity: sha512-3faScn5I+hy9VleOq/qNbAd6pAx7iH5jYBMS9I1HgQVijz/4mv5Bvw5iw1sC/90CODiKo81G/ps8AJrISn687g==}
     dependencies:
-      '@types/unist': 2.0.6
+      '@types/unist': 2.0.10
     dev: true
 
   /universal-user-agent@6.0.0:
@@ -7069,7 +7075,7 @@ packages:
       semver: 7.6.0
     dev: true
 
-  /vite-node@1.0.2(@types/node@18.11.18):
+  /vite-node@1.0.2(@types/node@20.11.20):
     resolution: {integrity: sha512-h7BbMJf46fLvFW/9Ygo3snkIBEHFh6fHpB4lge98H5quYrDhPFeI3S0LREz328uqPWSnii2yeJXktQ+Pmqk5BQ==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -7078,7 +7084,7 @@ packages:
       debug: 4.3.4
       pathe: 1.1.1
       picocolors: 1.0.0
-      vite: 5.0.6(@types/node@18.11.18)
+      vite: 5.0.6(@types/node@20.11.20)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -7090,7 +7096,7 @@ packages:
       - terser
     dev: true
 
-  /vite@5.0.6(@types/node@18.11.18):
+  /vite@5.0.6(@types/node@20.11.20):
     resolution: {integrity: sha512-MD3joyAEBtV7QZPl2JVVUai6zHms3YOmLR+BpMzLlX2Yzjfcc4gTgNi09d/Rua3F4EtC8zdwPU8eQYyib4vVMQ==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -7118,7 +7124,7 @@ packages:
       terser:
         optional: true
     dependencies:
-      '@types/node': 18.11.18
+      '@types/node': 20.11.20
       esbuild: 0.19.8
       postcss: 8.4.32
       rollup: 4.6.1
@@ -7126,7 +7132,7 @@ packages:
       fsevents: 2.3.3
     dev: true
 
-  /vitest@1.0.2(@types/node@18.11.18):
+  /vitest@1.0.2(@types/node@20.11.20):
     resolution: {integrity: sha512-F3NVwwpXfRSDnJmyv+ALPwSRVt0zDkRRE18pwUHSUPXAlWQ47rY1dc99ziMW5bBHyqwK2ERjMisLNoef64qk9w==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -7151,7 +7157,7 @@ packages:
       jsdom:
         optional: true
     dependencies:
-      '@types/node': 18.11.18
+      '@types/node': 20.11.20
       '@vitest/expect': 1.0.2
       '@vitest/runner': 1.0.2
       '@vitest/snapshot': 1.0.2
@@ -7170,8 +7176,8 @@ packages:
       strip-literal: 1.3.0
       tinybench: 2.5.1
       tinypool: 0.8.1
-      vite: 5.0.6(@types/node@18.11.18)
-      vite-node: 1.0.2(@types/node@18.11.18)
+      vite: 5.0.6(@types/node@20.11.20)
+      vite-node: 1.0.2(@types/node@20.11.20)
       why-is-node-running: 2.2.2
     transitivePeerDependencies:
       - less
